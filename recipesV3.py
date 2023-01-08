@@ -42,14 +42,10 @@ def sortResults(results: dict) -> list:
 
 def displayMeals(meals: list) -> None:
     string=""
-    big=[]
     for meal in meals:
         #print(f"{n}. {meal['label']} | No. of Ingredients: {meal['countIngds']}")
-        # string += f"{meal['label']} | No. of Ingredients: {meal['countIngds']}"
-        big.append(meal)
-    return big
-
-    # return string
+        string += f"{meal['label']} | No. of Ingredients: {meal['countIngds']} \n"
+    return string
 
 def getMeal(mealURI: str) -> dict:
     link = BASE_URL + "/" + mealURI + "?type=public"
