@@ -20,10 +20,9 @@ aid = "62bf7e15"
 akey = "78e58e130038ec1044ca0a63accb938a"
 
 
-
 def getMatchingMeals(igdt: str) -> dict:
     link = BASE_URL + "?type=public"
-    fields = ["uri", "label", "image", "url", "ingredientLines", "calories"]
+    fields = ["uri", "label", "image", "ingredientLines", "calories"]
     q = {"q" : igdt, "app_id" : aid, "app_key" : akey, "field" : fields}
     actual = requests.get(link, params = q)
 
