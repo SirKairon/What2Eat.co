@@ -42,9 +42,10 @@ def sortResults(results: dict) -> list:
 
 def displayMeals(meals: list) -> None:
     string=""
+    newline = "\n"
     for meal in meals:
         #print(f"{n}. {meal['label']} | No. of Ingredients: {meal['countIngds']}")
-        string += f"{meal['label']} | No. of Ingredients: {meal['countIngds']} \n"
+        string += f"{meal['label']} | No. of Ingredients: {meal['countIngds']} {newline}"
     return string
 
 def getMeal(mealURI: str) -> dict:
