@@ -1,24 +1,18 @@
-"""import requests
-from operator import itemgetter
+# Author: Dhruv Kairon
 
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import db
-
-cred = credentials.Certificate("hacked-2023-ad41e-firebase-adminsdk-lc0yj-acfa8af233.json")
-firebase_admin.initialize_app(cred, {
-    "databaseURL": "https://hacked-2023-ad41e-default-rtdb.firebaseio.com"
-})
-"""
-
+# Imports
 import requests
+import os
+from dotenv import load_dotenv
 from flask import Flask, request, render_template
 from operator import itemgetter
 
-BASE_URL = "https://api.edamam.com/api/recipes/v2"
-aid = "62bf7e15"
-akey = "78e58e130038ec1044ca0a63accb938a"
+# Load environment variables
+load_dotenv("/Users/dhruvkairon/apidata.env")
 
+BASE_URL = "https://api.edamam.com/api/recipes/v2"
+aid = os.environ.get("apiID")
+akey = os.environ.get("apiKey")
 
 
 def getMatchingMeals(igdt: str) -> dict:
@@ -47,13 +41,11 @@ def displayMeals(meals: list) -> None:
     newline = "\n"
     n = 1
     for meal in meals:
-        #print(f"{n}. {meal['label']} | No. of Ingredients: {meal['countIngds']}")
         string += f"{n}. {meal['label']} | No. of Ingredients: {meal['countIngds']} | Link to the Website: {meal['url']} | Calories: {meal['calories']} | Cuisine Type: {meal['cuisineType']} | Dish Type: {meal['dishType']} | Meal Type: {meal['mealType']} | Cautions: {meal['cautions']}"
         n += 1
     string2 += string + newline
     return string2
 
-    # return string
 
 def getMeal(mealURI: str) -> dict:
     link = BASE_URL + "/" + mealURI + "?type=public"
