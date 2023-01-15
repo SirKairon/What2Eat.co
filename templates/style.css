@@ -51,3 +51,9 @@
     color: #fff !important;
     background-color: #000 !important;
 }
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    color: #000;
+}

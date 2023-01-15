@@ -91,6 +91,7 @@ def terminal():
         meal = getMeal(uri)["recipe"]
         formatMeal(meal)
 
+
 # Flask app
 
 app = Flask(__name__)
@@ -99,7 +100,7 @@ app = Flask(__name__)
 def home():
 	return render_template("index.html")
 
-@app.route('/submit', methods=['GET'])
+@app.route('/results.html', methods=['GET'])
 def handle_form_submission():
     # Get the form data from the request
     ingredients = request.values.get("ingredients")
@@ -110,7 +111,7 @@ def handle_form_submission():
         return "No results loaded!"
     else:
         results = sortResults(results)
-        return displayMeals(results)
+        return render_template("results.html", image1 = results[0]["image"], image2 = results[1]["image"], image3 = results[2]["image"], image4 = results[3]["image"], image5 = results[4]["image"], image6 = results[5]["image"], image7 = results[6]["image"], image8 = results[7]["image"], label1 = results[0]["label"], label2 = results[1]["label"], label3 = results[2]["label"], label4 = results[3]["label"], label5 = results[4]["label"], label6 = results[5]["label"], label7 = results[6]["label"], label8 = results[7]["label"], ingdlist1 = formatIngd(results[0]["ingredientLines"]).split("\n"), ingdlist2 = formatIngd(results[1]["ingredientLines"]).split("\n"), ingdlist3 = formatIngd(results[2]["ingredientLines"]).split("\n"), ingdlist4 = formatIngd(results[3]["ingredientLines"]).split("\n"), ingdlist5 = formatIngd(results[4]["ingredientLines"]).split("\n"), ingdlist6 = formatIngd(results[5]["ingredientLines"]).split("\n"), ingdlist7 = formatIngd(results[6]["ingredientLines"]).split("\n"), ingdlist8 = formatIngd(results[7]["ingredientLines"]).split("\n"), url1 = results[0]["url"], url2 = results[1]["url"], url3 = results[2]["url"], url4 = results[3]["url"], url5 = results[4]["url"], url6 = results[5]["url"], url7 = results[6]["url"], url8 = results[7]["url"])
 
 if __name__ == '__main__':
     app.run(debug=True)
