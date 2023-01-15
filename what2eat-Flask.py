@@ -37,14 +37,11 @@ def sortResults(results: dict) -> list:
 
 def displayMeals(meals: list) -> None:
     string=""
-    string2 = ""
-    newline = "\n"
     n = 1
     for meal in meals:
         string += f"{n}. {meal['label']} | No. of Ingredients: {meal['countIngds']} | Link to the Website: {meal['url']} | Calories: {meal['calories']} | Cuisine Type: {meal['cuisineType']} | Dish Type: {meal['dishType']} | Meal Type: {meal['mealType']} | Cautions: {meal['cautions']}"
         n += 1
-    string2 += string + newline
-    return string2
+    return string
 
 
 def getMeal(mealURI: str) -> dict:
@@ -73,7 +70,7 @@ def formatIngd(inst: list) -> str:
         n += 1
     return actInst
 
-def main():
+def terminal():
     ingredient = input("Provide ingredient(s): ")
     print()
     results = getMatchingMeals(ingredient)["hits"]
