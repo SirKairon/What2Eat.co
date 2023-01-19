@@ -11,8 +11,8 @@ from operator import itemgetter
 #load_dotenv("/Users/dhruvkairon/apidata.env")
 
 BASE_URL = "https://api.edamam.com/api/recipes/v2"
-aid = os.environ.get("apiID")
-akey = os.environ.get("apiKey")
+aid = "62bf7e15"
+akey = "78e58e130038ec1044ca0a63accb938a"
 
 
 def getMatchingMeals(igdt: str) -> dict:
