@@ -8,7 +8,7 @@ from flask import Flask, request, render_template
 from operator import itemgetter
 
 # Load environment variables
-load_dotenv("/Users/dhruvkairon/apidata.env")
+#load_dotenv("/Users/dhruvkairon/apidata.env")
 
 BASE_URL = "https://api.edamam.com/api/recipes/v2"
 aid = os.environ.get("apiID")
