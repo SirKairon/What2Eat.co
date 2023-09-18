@@ -36,10 +36,8 @@ if you want to test the code from this repository. Follow these steps:
 
 Contributors names and contact info
 
-Dhruv Kairon  
-Aryan Shetty
-Jaspreet Singh
-Viraj
+Dhruv Kairon - dhruvkairon@gmail.com
+
 
 ## Version History
 
